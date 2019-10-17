@@ -1,13 +1,13 @@
 # Folders
 * Please create a folder named images, backgrounds and semantic_labels at root, place images and corresponding semantic labels in this folder, background images in backgrounds folder
 * Folder augmented and internal folders obj_det_labels, images, labels are generated after running artificial_image_generator.sh
-* Please place a labels.txt file in root folder and it should look like below
-__ignore__
-_background_
-biscuits
-cube
-chilisausce
-deo
+* Please place a labels.txt file in root folder and it should look like below \\
+__ignore__ \
+_background_ \\
+biscuits \\
+cube \\
+chilisausce \\
+deo \\
 * Now you can sun ./artificial_image_generator.sh to generate data and that can be found in augmented folder
 * --real_img_type .png arg can be changed in ./artificial_image_generator.sh depending on image format we are providing
 
