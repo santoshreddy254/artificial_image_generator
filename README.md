@@ -3,7 +3,7 @@
 * Sample images are placed in those folders
 * Folder augmented and internal folders obj_det_labels, images, labels are generated after running artificial_image_generator.sh
 * Please place a labels.txt file in root folder and it should look like below 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/santoshreddy254/artificial_image_generator/blob/master/labels.png)
 * Now you can sun ./artificial_image_generator.sh to generate data and that can be found in augmented folder
 * --real_img_type .png arg can be changed in ./artificial_image_generator.sh depending on image format we are providing
 
