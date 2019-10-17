@@ -1,3 +1,5 @@
+import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
 from arguments import generator_options
 from generate_artificial_images import perform_augmentation
 from visualizer import save_visuals
@@ -55,8 +57,7 @@ if __name__ == '__main__':
     else:
         make_save_dirs()
         data_paths = fetch_image_gt_paths()
-
-    num_cores = multiprocessing.cpu_count()
-    Parallel(n_jobs=num_cores)(delayed(read_files_and_visualize)(p)
-                               for p in tqdm.tqdm(
-        data_paths, desc='Saving visuals'))
+        num_cores = multiprocessing.cpu_count()
+        Parallel(n_jobs=num_cores)(delayed(read_files_and_visualize)(p)
+                                   for p in tqdm.tqdm(
+            data_paths, desc='Saving visuals'))

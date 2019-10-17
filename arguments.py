@@ -2,20 +2,35 @@ import argparse
 import collections
 
 
-LABEL_TO_CLASS = {0: 'background', 1: 'f20_20_B', 2: 's40_40_B', 3: 'f20_20_G', 4: 's40_40_G',
-                   5: 'm20_100', 6: 'm20', 7: 'm30', 8: 'r20', 9: 'bearing_box_ax01', 10: 'bearing',
-                   11: 'axis', 12: 'distance_tube', 13: 'motor', 14: 'container_box_blue',
-                   15: 'container_box_red', 16: 'bearing_box_ax16', 17: 'em_01', 18: 'em_02'}
+# LABEL_TO_CLASS = {0: 'background', 1: 'f20_20_B', 2: 's40_40_B', 3: 'f20_20_G', 4: 's40_40_G',
+#                    5: 'm20_100', 6: 'm20', 7: 'm30', 8: 'r20', 9: 'bearing_box_ax01', 10: 'bearing',
+#                    11: 'axis', 12: 'distance_tube', 13: 'motor', 14: 'container_box_blue',
+#                    15: 'container_box_red', 16: 'bearing_box_ax16', 17: 'em_01', 18: 'em_02'}
+#
+# CLASS_TO_LABEL = {value: key for key, value in LABEL_TO_CLASS.items()}
+#
+# SCALES_RANGE_DICT = {'f20_20_B': None, 's40_40_B': None, 'f20_20_G': None,
+#                      's40_40_G': None,  'm20_100': None, 'm20': None, 'm30': None,
+#                      'r20': None, 'bearing_box_ax01': None, 'bearing': None, 'axis': None,
+#                      'distance_tube': None, 'motor': None, 'container_box_blue': None,
+#                      'container_box_red': None, 'bearing_box_ax16': None,
+#                      'em_01': None, 'em_02': None}
+# Generating LABEL_TO_CLASS, CLASS_TO_LABEL, SCALES_RANGE_DICT based on labels.txt provided
+
+labels_file = open('labels.txt')
+labels = ['background']
+LABEL_TO_CLASS = dict()
+SCALES_RANGE_DICT = dict()
+for i in labels_file.readlines():
+	if i.rstrip()not in['__ignore__','_background_']:
+		labels.append(i.rstrip())
+
+for i,j in enumerate(labels):
+	LABEL_TO_CLASS[i] = j
+	if j not in ['background']:
+		SCALES_RANGE_DICT[j] = None
 
 CLASS_TO_LABEL = {value: key for key, value in LABEL_TO_CLASS.items()}
-
-SCALES_RANGE_DICT = {'f20_20_B': None, 's40_40_B': None, 'f20_20_G': None,
-                     's40_40_G': None,  'm20_100': None, 'm20': None, 'm30': None,
-                     'r20': None, 'bearing_box_ax01': None, 'bearing': None, 'axis': None,
-                     'distance_tube': None, 'motor': None, 'container_box_blue': None,
-                     'container_box_red': None, 'bearing_box_ax16': None,
-                     'em_01': None, 'em_02': None}
-
 
 class StoreScalesDict(argparse.Action):
     def __call__(self, parser_scales, namespace, arg_vals, option_string=None):
