@@ -1,5 +1,6 @@
 # Folders
 * Please create a folder named images, backgrounds and semantic_labels at root, place images and corresponding semantic labels in this folder, background images in backgrounds folder
+* Sample images are placed in those folders
 * Folder augmented and internal folders obj_det_labels, images, labels are generated after running artificial_image_generator.sh
 * Please place a labels.txt file in root folder and it should look like below 
 ![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
