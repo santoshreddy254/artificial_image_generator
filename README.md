@@ -1,4 +1,4 @@
-# Folders
+* git clone https://github.com/NareshGuru77/artificial_image_generator.git
 * Please create a folder named images, backgrounds and semantic_labels at root, place images and corresponding semantic labels in this folder, background images in backgrounds folder
 * Sample images are placed in those folders
 * Folder augmented and internal folders obj_det_labels, images, labels are generated after running artificial_image_generator.sh
